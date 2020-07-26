@@ -1,7 +1,7 @@
 package com.panrui.panrui.bean;
 
 public class UserEnable {
-    private long uid;
+    private int uid;
     private String username;
     private boolean userEnable;
 
@@ -9,7 +9,7 @@ public class UserEnable {
         return uid;
     }
 
-    public void setUid(long uid) {
+    public void setUid(int uid) {
         this.uid = uid;
     }
 

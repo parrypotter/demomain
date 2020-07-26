@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Date;
 
 public class User implements UserDetails {
-    private long uid;
+    private int uid;
     private String username;
     private String password;
     private String nickname;
@@ -51,7 +51,7 @@ public class User implements UserDetails {
         return uid;
     }
 
-    public void setUid(long uid) {
+    public void setUid(int uid) {
         this.uid = uid;
     }
 
