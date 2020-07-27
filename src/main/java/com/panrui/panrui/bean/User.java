@@ -3,9 +3,18 @@ package com.panrui.panrui.bean;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Collection;
 import java.util.Date;
 
+
+//@Entity代表当前类是一个实体类
+@Entity
+//@Table用来对应数据库的表名
+@Table(name = "user")
 public class User implements UserDetails {
     private int uid;
     private String username;
