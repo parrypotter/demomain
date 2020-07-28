@@ -2,10 +2,9 @@ package com.panrui.panrui.config;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/*设置登录前页面访问权限*/
 public class LoginHandlerIntercepter implements HandlerInterceptor {
     @Override
     //目标方法执行之前

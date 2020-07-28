@@ -4,11 +4,10 @@ package com.panrui.panrui.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-
+/*页面过滤和定向跳转*/
 @Configuration
 public class AutoStaticConfiguration  implements WebMvcConfigurer{
     @Override

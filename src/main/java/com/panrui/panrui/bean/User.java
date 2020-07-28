@@ -1,11 +1,8 @@
 package com.panrui.panrui.bean;
 
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Collection;
 import java.util.Date;
@@ -27,6 +24,20 @@ public class User implements UserDetails {
     private int userRole;//用户权限，0代表普通用户，1代表管理员用户，1需要超级账号授权，超级账号权限为2
     private boolean userEnable;//用户使用权限，true代表正常使用，false代表异常账户被封控账户；
 
+    public User(int uid, String username, String password, String nickname,
+                int userState, String email, Date userLoginIn, Date userLoginOut,
+                int userRole, boolean userEnable) {
+        this.uid = uid;
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.userState = userState;
+        this.email = email;
+        this.userLoginIn = userLoginIn;
+        this.userLoginOut = userLoginOut;
+        this.userRole = userRole;
+        this.userEnable = userEnable;
+    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -56,6 +67,7 @@ public class User implements UserDetails {
     public void setUsername(String username) {
         this.username = username;
     }
+
     public long getUid() {
         return uid;
     }
@@ -67,7 +79,6 @@ public class User implements UserDetails {
     public String getUsername() {
         return username;
     }
-
 
     public String getPassword() {
         return password;

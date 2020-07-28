@@ -1,0 +1,6 @@
+<mapper namespace="com.panrui.panrui.mapper.UserLoginRepository">
+    <!--登录-->
+    <select id="doLoginIn" resultType="com.panrui.panrui.bean.User">
+        SELECT * FROM users WHERE username=#{username} AND password=#{password}
+    </select>
+</mapper>
