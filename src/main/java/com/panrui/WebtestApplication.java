@@ -7,12 +7,14 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.oauth2.OAuth2AutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(exclude={SecurityAutoConfiguration.class,
 		OAuth2AutoConfiguration.class,
 		SecurityFilterAutoConfiguration.class,
-		ManagementWebSecurityAutoConfiguration.class,
-		DataSourceAutoConfiguration.class})
+		ManagementWebSecurityAutoConfiguration.class})
+@ComponentScan(basePackages = {"com.panrui.panrui.bean","com.panrui.panrui.mapper","com.panrui.panrui.service",
+		"com.panrui.panrui.config","com.panrui.panrui.controller"})
 public class WebtestApplication {
 
 	public static void main(String[] args) {

@@ -1,6 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.panrui.panrui.mapper.UserLoginRepository">
     <!--登录-->
-    <select id="doLoginIn" resultType="com.panrui.panrui.bean.User">
-        SELECT * FROM users WHERE username=#{username} AND password=#{password}
+    <select id="doLoginIn"  resultMap="BaseResultMap">
+        SELECT * FROM user WHERE username=#{username} AND password=#{password}
     </select>
+    <resultMap id="BaseResultMap" type="com.panrui.panrui.bean.User">
+        <id column="uid" property="uid"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nickname" property="nickname"/>
+        <result column="userState" property="userState"/>
+        <result column="email" property="email"/>
+        <result column="userLoginIn" property="userLoginIn"/>
+        <result column="userLoginOut" property="userLoginOut"/>
+        <result column="userRole" property="userRole"/>
+        <result column="userEnable" property="userEnable"/>
+    </resultMap>
 </mapper>

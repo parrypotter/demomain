@@ -2,8 +2,7 @@ package com.panrui.panrui.bean;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 
@@ -13,31 +12,25 @@ import java.util.Date;
 //@Table用来对应数据库的表名
 @Table(name = "user")
 public class User implements UserDetails {
-    private int uid;
+    @Id
+    @GeneratedValue
+    private Integer uid;
+
+    @Column(name="username")
     private String username;
+
+    @Column(name="password")
     private String password;
+
     private String nickname;
-    private int userState;//状态只有0或者1，0代表当前用户注册但未激活，1代表已激活状态
+    private Integer userState;//状态只有0或者1，0代表当前用户注册但未激活，1代表已激活状态
     private String email;
     private Date userLoginIn;
     private Date userLoginOut;
-    private int userRole;//用户权限，0代表普通用户，1代表管理员用户，1需要超级账号授权，超级账号权限为2
-    private boolean userEnable;//用户使用权限，true代表正常使用，false代表异常账户被封控账户；
+    private Integer userRole;//用户权限，0代表普通用户，1代表管理员用户，1需要超级账号授权，超级账号权限为2
+    private Boolean userEnable;//用户使用权限，true代表正常使用，false代表异常账户被封控账户；
 
-    public User(int uid, String username, String password, String nickname,
-                int userState, String email, Date userLoginIn, Date userLoginOut,
-                int userRole, boolean userEnable) {
-        this.uid = uid;
-        this.username = username;
-        this.password = password;
-        this.nickname = nickname;
-        this.userState = userState;
-        this.email = email;
-        this.userLoginIn = userLoginIn;
-        this.userLoginOut = userLoginOut;
-        this.userRole = userRole;
-        this.userEnable = userEnable;
-    }
+
 
     @Override
     public boolean isAccountNonExpired() {
@@ -64,22 +57,37 @@ public class User implements UserDetails {
         return null;
     }
 
-    public void setUsername(String username) {
+    /*public User(Integer uid, String username, String password, String nickname, Integer userState, String email, Date userLoginIn, Date userLoginOut, Integer userRole, Boolean userEnable) {
+        this.uid = uid;
         this.username = username;
-    }
+        this.password = password;
+        this.nickname = nickname;
+        this.userState = userState;
+        this.email = email;
+        this.userLoginIn = userLoginIn;
+        this.userLoginOut = userLoginOut;
+        this.userRole = userRole;
+        this.userEnable = userEnable;
+    }*/
 
-    public long getUid() {
+    public Integer getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(Integer uid) {
         this.uid = uid;
     }
 
+    @Override
     public String getUsername() {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
     public String getPassword() {
         return password;
     }
@@ -96,11 +104,11 @@ public class User implements UserDetails {
         this.nickname = nickname;
     }
 
-    public int getUserState() {
+    public Integer getUserState() {
         return userState;
     }
 
-    public void setUserState(int userState) {
+    public void setUserState(Integer userState) {
         this.userState = userState;
     }
 
@@ -128,21 +136,19 @@ public class User implements UserDetails {
         this.userLoginOut = userLoginOut;
     }
 
-    public int getUserRole() {
+    public Integer getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(int userRole) {
+    public void setUserRole(Integer userRole) {
         this.userRole = userRole;
     }
 
-    public boolean isUserEnable() {
+    public Boolean isUserEnable() {
         return userEnable;
     }
 
     public void setUserEnable(boolean userEnable) {
         this.userEnable = userEnable;
     }
-
-
 }
