@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface UserLoginRepository {
     User doLoginIn(@Param(value = "username")String username,
                    @Param(value = "password")String password);
+
+    String setUserState(@Param(value = "username")String username);
 }

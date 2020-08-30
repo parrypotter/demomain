@@ -13,7 +13,20 @@ spring:
     mode: HTML5
     prefix: classpath:/templates/
     suffix: .html
+    content-type: text/html
+  mail:
+    host: smtp.163.com
+    username: panruihero@163.com
+    password: HOUXXEJLBIOYBGGW
+    default-encoding: UTF-8
+
+mail:
+  fromMail:
+    sender: panruihero@163.com
+
+
 mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
   type-aliases-package: com.panrui.panrui.mapper
+

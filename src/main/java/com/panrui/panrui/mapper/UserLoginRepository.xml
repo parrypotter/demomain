@@ -8,15 +8,11 @@
         SELECT * FROM user WHERE username=#{username} AND password=#{password}
     </select>
     <resultMap id="BaseResultMap" type="com.panrui.panrui.bean.User">
-        <id column="uid" property="uid"/>
         <result column="username" property="username"/>
         <result column="password" property="password"/>
-        <result column="nickname" property="nickname"/>
-        <result column="userState" property="userState"/>
-        <result column="email" property="email"/>
-        <result column="userLoginIn" property="userLoginIn"/>
-        <result column="userLoginOut" property="userLoginOut"/>
-        <result column="userRole" property="userRole"/>
-        <result column="userEnable" property="userEnable"/>
     </resultMap>
+    <!--查询当前用户是否已经激活-->
+    <select id="setUserState" resultType="string" parameterType="java.lang.String">
+        SELECT userState FROM user WHERE username=#{username}
+    </select>
 </mapper>

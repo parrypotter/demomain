@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>右侧导航</title>
+</head>
+    <script th:src="@{/js/ajaxUse.js}" type="text/javascript"></script>
+    <script th:src="@{/js/jsonHander.js}" type="text/javascript"></script>
+<body>
+
+    <div id="page-wrapper" class="gray-bg dashbard-1" th:fragment="rightMain">
+        <!--右侧部分开始-->
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-info " href="#"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" id="navbar-form-custom" action="javascript:void(0)" onkeydown="if(event.keyCode==13) return check();">
+                        <div class="form-group">
+                            <input type="text" placeholder="请输入您需要查找的用户名 …" class="form-control"  id="top-search" >
+                        </div>
+                    </form>
+                </div>
+                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                    <i class="fa fa-envelope"></i> <span class="label label-warning">登出</span>
+                </a>
+
+            </nav>
+        </div>
+        <div>
+            <table>
+                <tr id="userTr"></tr>
+            </table>
+
+        </div>
+
+
+        <!--右侧部分结束-->
+    </div>
+
+</body>
+</html>

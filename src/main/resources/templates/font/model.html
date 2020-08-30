@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<script th:src="@{/js/jquery.min.js}" type="text/javascript"></script>
+<script type="text/javascript">
+      $("#ajaxBtn").click(function() {
+          $.ajax({
+              type : "POST",
+              url : "/admin/resetUpUserRole",
+              data : 'uid':$('#uid'),
+             success : function(msg) {
+                 alert("success: " + msg);
+             }
+          });
+      });
+    function sumbitTest(){
+         return true;
+    }
+
+</script>
+<body>
+    <a th:href="@{/admin/showUser}">获取当前所有用户权限信息</a>
+    <table>
+        <form method="post" th:action="@{/admin/resetUpUserRole}">
+            <tr th:each="user : ${msgUsers}">
+                <td th:text="${user.uid}" id="uid"></td>
+                <td th:text="${user.getUsername()}"></td>
+                <td th:text="${user.getUserRole()}"></td>
+                <td th:text="${user.getUserEnable()}"></td>
+                <td><button type="button">修改</button></td>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>

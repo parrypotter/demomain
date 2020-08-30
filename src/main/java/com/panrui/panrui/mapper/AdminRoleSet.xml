@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.panrui.panrui.mapper.AdminRoleSet">
+
+    <update id="upUserRole">
+        UPDATE user SET userRole = 1 WHERE uid = #{uid}
+    </update>
+
+    <update id="downUserRole">
+        UPDATE user SET userRole = 0 WHERE uid = #{uid}
+    </update>
+
+    <update id="setUserEnable">
+        UPDATE user SET userEnable = 1 WHERE uid = #{uid}
+    </update>
+
+    <select id="showUsers"  resultMap="UserRoleMap">
+        SELECT * FROM user WHERE userRole = 0 OR userRole = 1
+    </select>
+    <resultMap id="UserRoleMap" type="com.panrui.panrui.bean.Role">
+        <id column="uid" property="uid"/>
+        <result column="username" property="username"/>
+        <result column="userRole" property="userRole"/>
+        <result column="userEnable" property="userEnable"/>
+    </resultMap>
+
+    <select id="selectUsers"  resultMap="RoleMap">
+        SELECT * FROM user WHERE username = #{username}
+    </select>
+    <resultMap id="RoleMap" type="com.panrui.panrui.bean.Role">
+        <id column="uid" property="uid"/>
+        <result column="username" property="username"/>
+        <result column="userRole" property="userRole"/>
+        <result column="userEnable" property="userEnable"/>
+    </resultMap>
+</mapper>

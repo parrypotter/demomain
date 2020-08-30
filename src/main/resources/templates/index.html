@@ -5,14 +5,14 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> - 登录</title>
+    <title>登录</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/css/font-awesome.css}" rel="stylesheet">
-    <link th:href="@{/css/animate.css}" rel="stylesheet">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/favicon.ico}" rel="icon">
+    <link th:href="@{/css/bootstrap.min.css}"  rel="stylesheet" type="text/css">
+    <link th:href="@{/css/font-awesome.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/animate.css}"  rel="stylesheet" type="text/css">
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
 
     <![endif]-->
@@ -28,7 +28,7 @@
             </div>
             <h3>欢迎使用 自动化测试平台</h3>
 
-            <form class="m-t" role="form" action="main.html" th:action="@{/user/login}" method="post">
+            <form class="m-t" role="form" action="main.html" th:action="@{/user/login}" method="POST">
 
                 <p style="color:red" th:text="${msg}"  th:if="${not #strings.isEmpty(msg)}"></p>
                 <div class="form-group">
@@ -47,8 +47,8 @@
     </div>
 
     <!-- 全局js -->
-    <script th:src="@{/js/jquery.min.js}" type="“text/javascript”"></script>
-    <script th:src="@{/js/bootstrap.min.js}" type="“text/javascript”"></script>
+    <script src="/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 
     
     
